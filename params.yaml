@@ -1,0 +1,23 @@
+neural_network_params: 
+  epochs: [50, 100, 200]
+  lrs: [0.00001, 0.0001, 0.001]
+  batch_sizes: [2500, 5000, 10000]
+
+random_forest_params: 
+  n_estimators: [50, 100, 200]
+  criterion: [gini, entropy, log_loss]
+  max_depth: [10, 20, 40]
+
+xg_boost_params: 
+  n_estimators: [8, 16, 32, 64, 128, 256]
+  max_depth: [3, 5, 7]
+  learning_rate: [0.1, 0.01, 0.05, 0.001]
+
+cat_boost_params: 
+  depth: [6, 8, 10]
+  iterations: [30, 50, 100]
+  learning_rate: [0.01, 0.05, 0.1]
+
+ada_boost_params: 
+  learning_rate: [0.1, 0.01, 0.5, 0.001] 
+  n_estimators: [8, 16, 32, 64, 128, 256]

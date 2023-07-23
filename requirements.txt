@@ -1,0 +1,21 @@
+torch
+scikit-learn
+catboost
+xgboost
+dill
+pandas
+dvc 
+notebook
+numpy 
+matplotlib
+seaborn
+python-box==6.0.2
+pyYAML
+tdqm
+ensure==1.0.2
+joblib
+types-pyYAML
+scipy
+Flask
+Flask-Cors
+-e .

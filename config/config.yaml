@@ -1,0 +1,29 @@
+artifacts_root: artifacts
+
+
+data_ingestion:
+  root_dir: artifacts/data_ingestion
+  source_URL: https://github.com/Anish-Mitagar/datasets/raw/main/diabetes_prediction_dataset.csv.zip
+  local_data_file: artifacts/data_ingestion/data.zip
+  unzip_dir: artifacts/data_ingestion
+
+data_transformation:
+  root_dir: artifacts/data_transformation
+  data_path: artifacts/data_ingestion/diabetes_prediction_dataset.csv
+  save_path: artifacts/data_transformation/transformed_data.csv
+  preprocessor_path: artifacts/data_transformation/preprocessor.pkl
+
+model_trainer:
+  root_dir: artifacts/model_trainer
+  data_path: artifacts/data_transformation/transformed_data.csv
+  save_path_best_acc: artifacts/model_trainer/best_acc_model
+  save_path_best_f1: artifacts/model_trainer/best_f1_model
+
+model_validation:
+  root_dir: artifacts/model_validation
+  save_dir: artifacts/model_validation/results.json
+  data_path: artifacts/data_transformation/transformed_data.csv
+  best_acc_model_path_pth: artifacts/model_trainer/best_acc_model/model.pth
+  best_acc_model_path_pkl: artifacts/model_trainer/best_acc_model/model.pkl
+  best_f1_model_path_pth: artifacts/model_trainer/best_f1_model/model.pth
+  best_f1_model_path_pkl: artifacts/model_trainer/best_f1_model/model.pkl
