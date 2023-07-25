@@ -1,6 +1,7 @@
 from flask import Flask, request, render_template
 import numpy as np
 import pandas as pd
+import os
 
 from sklearn.preprocessing import StandardScaler
 from mlClassifier.pipeline.predict import CustomData, PredictPipeline
@@ -12,6 +13,11 @@ app = application
 @app.route('/')
 def index():
     return render_template('index.html')
+
+@app.route("/train", methods=['GET','POST'])
+def trainRoute():
+    os.system("python3 main.py")
+    return "Training done successfully!"
 
 @app.route('/predictdata', methods=['GET', 'POST'])
 def predict_datapoint():
@@ -30,12 +36,8 @@ def predict_datapoint():
         )
         pred_df=data.get_data_as_data_frame()
         print(pred_df)
-        print("Before Prediction")
-
         predict_pipeline=PredictPipeline()
-        print("Mid Prediction")
         results=predict_pipeline.predict(pred_df)
-        print("after Prediction")
         return render_template('home.html',results1=results[0], results2=results[1])
 
 if __name__=="__main__":
